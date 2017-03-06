@@ -44,3 +44,4 @@ new_samples = np.array(
 y = list(classifier.predict(new_samples, as_iterable=True))
 print('Predictions: {}'.format(str(y)))
 #test github
+#test midified
