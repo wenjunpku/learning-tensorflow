@@ -1,0 +1,3 @@
+model_checkpoint_path: "model.cpkt-1999"
+all_model_checkpoint_paths: "model.cpkt-999"
+all_model_checkpoint_paths: "model.cpkt-1999"
