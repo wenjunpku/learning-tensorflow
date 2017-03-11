@@ -1,2 +1,8 @@
 #ignore tfnenv folder
 tfvenv/
+#ignore log folder 
+log/
+#ignore pyc file
+*pyc
+#ignore saved model
+iris_model/

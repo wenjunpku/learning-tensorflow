@@ -103,6 +103,8 @@ class PTBModel(object):
     def lstm_cell():
       return tf.contrib.rnn.BasicLSTMCell(
           size, forget_bias=0.0, state_is_tuple=True)
+
+    #1. what does this mean
     attn_cell = lstm_cell
     if is_training and config.keep_prob < 1:
       def attn_cell():
@@ -113,6 +115,7 @@ class PTBModel(object):
 
     self._initial_state = cell.zero_state(batch_size, data_type())
 
+    #2.
     with tf.device("/cpu:0"):
       embedding = tf.get_variable(
           "embedding", [vocab_size, size], dtype=data_type())
@@ -138,7 +141,7 @@ class PTBModel(object):
         (cell_output, state) = cell(inputs[:, time_step, :], state)
         outputs.append(cell_output)
 
-    output = tf.reshape(tf.concat(outputs, 1), [-1, size])
+    output = tf.reshape(tf.concat(outputs, 1), [-1, size])  # t * [b, h] -> [b * t, h]
     softmax_w = tf.get_variable(
         "softmax_w", [size, vocab_size], dtype=data_type())
     softmax_b = tf.get_variable("softmax_b", [vocab_size], dtype=data_type())
