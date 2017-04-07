@@ -6,3 +6,5 @@ log/
 *pyc
 #ignore saved model
 iris_model/
+#ignore MNIST
+MNIST/
